@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Destination</title>
+</head>
+<p><a href="/travel/home">Home</a> | <a href="/travel/logout">Logout</a>    
+<!-- This page allows the user to view the destination and see who else has joined them on this travel plan. This is a great example of a many to many relationship using the related name as we are looking at only the other users that have joined this trip as well. -->
+<h2>{{travel.destination}}</h2>
+<body>
+    <p><strong>Planned By: </strong>{{travel.add.name}}</p>
+    <p><strong>Description: </strong>{{travel.plan}}</p>
+    <p><strong>Travel Date From: </strong>{{travel.travel_start}}</p>
+    <p><strong>Travel Date To: </strong>{{travel.travel_end}}</p>
+<br>
+<h2>Other users' joining the trip:</h2>
+    {% for person in travelers %} 
+        <p>{{person.name}}</p>
+    {% endfor %}
+</body>
+</html>
